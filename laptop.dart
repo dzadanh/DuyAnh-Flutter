@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'uses.dart';
-import 'detail.dart';
 
 class Laptop extends StatefulWidget{
   @override
