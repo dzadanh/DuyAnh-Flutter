@@ -1,31 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/t.dart';
+import 'laptop.dart';
 
 void main(){
   runApp(MyApp());
-}
-
-class FavoriteButton extends StatefulWidget{
-  @override
-  _FavoriteButtonState createState() => _FavoriteButtonState();
-}
-
-class _FavoriteButtonState extends State<FavoriteButton>{
-  bool checkFav = false;
-  @override
-  Widget build(BuildContext context){
-    return GestureDetector(
-      onTap: (){
-        setState(() {
-          checkFav = !checkFav;
-        });
-      },
-      child: Icon(
-        checkFav ? Icons.favorite : Icons.favorite_border,
-        color: checkFav ? Colors.red : Colors.black,
-      ),
-    );
-  }
 }
 
 class MyApp extends StatelessWidget{
@@ -33,312 +10,241 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyProduct(),
+      home: HomeScreen(),
     );
   }
 }
 
-class MyProduct extends StatefulWidget{
+class HomeScreen extends StatefulWidget{
   @override
-  _MyProductState createState() => _MyProductState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _MyProductState extends State<MyProduct>{
-  List<Map<String, String>> products = [
-    {
-      "name": 'Laptop Lenovo Ideapad Slim 3 - 15IRH10 i7 13620H/16GB/512GB/15.3"FHD/Win11',
-      "price": '18.490.000 ₫',
-      "image": 'https://anphat.com.vn/media/product/46137_laptop_lenovo_ideapad_slim_3_14iah8_83eq0005vn__5_.jpg',
-    },
-    {
-      "name": 'Macbook Air 13 M2 2024 8CPU/8GPU/16GB/256GB',
-      "price": '23.090.000 ₫',
-      "image": 'https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/macbook_air_13_m2_midnight_1_35053fbcf9.png',
-    },
-    {
-      "name": 'MacBook Pro 14 M4 2024 10CPU/10GPU/16GB/512GB',
-      "price": '39.990.000 ₫',
-      "image": 'https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/macbook_pro_14_m4_space_black_1_8891ba3512.png',
-    },
-    {
-      "name": 'LMacBook Air 15 M3 2024 8CPU/10GPU/16GB/256GB',
-      "price": '30.590.000 ₫',
-      "image": 'https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/macbook_air_15_m3_starlight_1_6065e6fbae.png',
-    },
-    {
-      "name": 'Laptop Acer Aspire Lite 15 AL15-41P-R3U5 R7 5700U/16GB/512GB/15.6"FHD/Win11',
-      "price": '12.990.000 ₫',
-      "image": 'https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2022_3_7_637822560588852335_acer-aspire-3-a315-58-bac-1.jpg',
-    },
-    {
-      "name": 'Laptop Dell Latitude L3540 i5 1235U/16GB/512GB/15.6" FHD/Win11',
-      "price": '16.990.000 ₫',
-      "image": 'https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/dell_latitude_15_3540_9950b79986.png',
-    },
-    {
-      "name": 'Laptop Lenovo Ideapad Slim 3 - 15IRH10 i7 13620H/16GB/512GB/15.3"FHD/Win11',
-      "price": '18.490.000 ₫',
-      "image": 'https://anphat.com.vn/media/product/46137_laptop_lenovo_ideapad_slim_3_14iah8_83eq0005vn__5_.jpg',
-    },
-    {
-      "name": 'Macbook Air 13 M2 2024 8CPU/8GPU/16GB/256GB',
-      "price": '23.090.000 ₫',
-      "image": 'https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/macbook_air_13_m2_midnight_1_35053fbcf9.png',
-    },
-  ];
-
-  bool isListView = false;
-
+class _HomeScreenState extends State<HomeScreen>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(
-        title: Wrap(
-          children: [
-            Text(
-              'F',
-              style: TextStyle(fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: Colors.blue),
-            ),
-            Text(
-              'P',
-              style: TextStyle(fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: Colors.orange),
-            ),
-            Text(
-              'T',
-              style: TextStyle(fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: Colors.green),
-            ),
-            SizedBox(width: 10,),
-            Text(
-              'Shop',
-              style: TextStyle(fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
-            ),
-            Baseline(
-              baseline: 17, // Điều chỉnh vị trí xuống dưới
-              baselineType: TextBaseline.alphabetic,
-              child: Text(
-                '.com.vn',
-                style: TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),
+        appBar: AppBar(
+          title: Wrap(
+            children: [
+              Text(
+                'F',
+                style: TextStyle(fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: Colors.blue),
               ),
-            ),
-          ],
+              Text(
+                'P',
+                style: TextStyle(fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: Colors.orange),
+              ),
+              Text(
+                'T',
+                style: TextStyle(fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: Colors.green),
+              ),
+              SizedBox(width: 10,),
+              Text(
+                'Shop',
+                style: TextStyle(fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+              Baseline(
+                baseline: 17, // Điều chỉnh vị trí xuống dưới
+                baselineType: TextBaseline.alphabetic,
+                child: Text(
+                  '.com.vn',
+                  style: TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+          backgroundColor: Colors.red,
         ),
-        backgroundColor: Colors.red,
-        actions: [
-          IconButton(
-              onPressed: (){
-                setState(() {
-                  isListView = !isListView;
-                });
-              },
-              icon: Icon(isListView ? Icons.list : Icons.grid_view, color: Colors.white,),
-          )
-        ],
-      ),
-      body:
-      Column(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: EdgeInsets.all(10),
-            child: Row(
-              children: [
-                Icon(Icons.home, size: 30,),
-                SizedBox(width: 100,),
-                Icon(Icons.search, size: 30,),
-                SizedBox(width: 30,),
-                Container(
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.black.withOpacity(0.7)),
-                  padding: EdgeInsets.all(6),
-                  child: Center(
-                    child: Icon(Icons.person, color: Colors.white,),
+            child: ElevatedButton(
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                          pageBuilder: (context, animation, secondaryAnimation) => Laptop(),
+                      )
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(400, 200),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)
                   ),
+                  backgroundColor: Colors.white,
                 ),
-                SizedBox(width: 30,),
-                ElevatedButton(
-                    onPressed: (){},
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
-                    child: Row(
-                      children: [
-                        Icon(Icons.shopping_cart, color: Colors.white,),
-                        SizedBox(width: 5,),
-                        Text('Giỏ hàng', style: TextStyle(color: Colors.white),)
-                      ],
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Positioned(
+                      left: 40,
+                      child: Text('Laptop', style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),),
+                    ),
+                    SizedBox(width: 30,),
+                    Image.network(
+                      'https://i5.walmartimages.com/asr/1ba66cba-c16d-45b1-b051-536ddbc0ea94.f9c34f840f118549ad2fdbdfd931f3ae.jpeg',
+                      width: 200,
+                      height: 150,
+                      fit: BoxFit.cover,
                     )
+                  ],
                 )
-              ],
             ),
           ),
-          Expanded(
-            child: isListView
-              ? ListView.builder(
-                itemCount: products.length,
-                itemBuilder: (context,index){
-                  return Card(
-                    margin: EdgeInsets.all(10),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    color: Colors.white,
-                    child: Stack(
-                      children:[
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(2),
-                              child: Image.network(
-                                products[index]["image"]!,
-                                width: 180,
-                                height: 150,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(top: 5, right: 25),
-                                    child: Text(
-                                      products[index]["name"]!,
-                                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                                    ),
-                                  ),
-                                  Text('Mua ngay với giá:', style: TextStyle(fontSize: 12, color: Colors.deepPurple),),
-                                  Text(products[index]["price"]!, style: TextStyle(fontWeight: FontWeight.bold),),
-                                  Row(
-                                    children: [
-                                      SizedBox(width: 20,),
-                                      Builder(
-                                        builder: (context) => IconButton(
-                                            onPressed: (){
-                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                  SnackBar(
-                                                    content: Text('đã thêm vào giỏ hàng',),
-                                                    duration: Duration(seconds: 2),
-                                                  )
-                                              );
-                                            },
-                                            icon: Icon(Icons.add_shopping_cart, color: Colors.blue,)
-                                        ),
-                                      ),
-                                      SizedBox(width: 15,),
-                                      Builder(
-                                          builder: (context) => ElevatedButton(
-                                            onPressed: (){
-                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                  SnackBar(
-                                                    content: Text('đã thanh toán'),
-                                                    duration: Duration(seconds: 2),
-                                                  )
-                                              );
-                                            },
-                                            style: ElevatedButton.styleFrom(
-                                              padding: EdgeInsets.symmetric(horizontal: 10,),
-                                              minimumSize: Size.zero,
-                                              backgroundColor: Colors.red,
-                                            ),
-                                            child: Text('Mua ngay', style: TextStyle(color: Colors.white),),
-                                          )
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
+          Row(
+            children: [
+              Padding(
+                  padding: EdgeInsets.all(10),
+                child: ElevatedButton(
+                    onPressed: (){
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) => Laptop(),
+                          )
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                        fixedSize: Size(180, 100),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
                         ),
-                        Positioned(
-                          top: 5,
-                          right: 5,
-                          child: FavoriteButton(),
-                        )
-                      ]
+                      backgroundColor: Colors.white,
                     ),
-                  );
-                }
-              )
-                : GridView.builder(
-              itemCount: products.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 5,
-                mainAxisSpacing: 5,
-              ),
-              padding: EdgeInsets.all(10),
-              itemBuilder: (context, index){
-                return Container(
-                  width: 200,
-                  height: 350,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: 40,
-                        child: Image.network(
-                          products[index]["image"]!,
-                          width: 200,
-                          height: 120,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Positioned(
+                          left: 40,
+                          child: Text('iPhone', style: TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.bold),),
+                        ),
+                        SizedBox(width: 10,),
+                        Image.network(
+                          'https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2023_9_20_638307989548944936_iphone-15-promax-xanh-1.jpg',
+                          width: 70,
+                          height: 80,
                           fit: BoxFit.cover,
-                        ),
+                        )
+                      ],
+                    )
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: ElevatedButton(
+                    onPressed: (){
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) => Laptop(),
+                          )
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: Size(180, 100),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
                       ),
-                      Positioned(
-                        left: 5,
-                        top: 5,
-                        child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 4, horizontal: 4),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: Colors.cyan.withOpacity(0.7),
-                          ),
-                          child: Text(products[index]["price"]!, style: TextStyle(fontWeight: FontWeight.bold),),
+                      backgroundColor: Colors.white,
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Positioned(
+                          left: 40,
+                          child: Text('Tủ lạnh', style: TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.bold),),
                         ),
-                      ),
-                      Positioned(
-                        top: 5,
-                        right: 5,
-                        child: FavoriteButton(),
-                      ),
-                      Positioned(
-                        bottom: -10,
-                        left: 5,
-                        child: Builder(
-                            builder: (context) => IconButton(
-                                onPressed: (){
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text('đã thêm vào giỏ hàng'),
-                                        duration: Duration(seconds: 1),
-                                      )
-                                  );
-                                },
-                                icon: Icon(Icons.add_shopping_cart, color: Colors.blue,)
-                            )
-                        ),
-                      ),
-                      Positioned(
-                        bottom: -10,
-                        right: 10,
-                        child: Builder(
-                            builder: (context) => TextButton(
-                                onPressed: (){
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text('đã thanh toán!'),
-                                        duration: Duration(seconds: 2),
-                                      )
-                                  );
-                                },
-                                child: Text('Mua ngay ->', style: TextStyle(color: Colors.red),)
-                            )
-                        ),
+                        SizedBox(width: 10,),
+                        Image.network(
+                          'https://cdn2.fptshop.com.vn/unsafe/750x0/filters:quality(100)/2024_6_10_638536307431904817_casper-458-lit-rs-460pg-5.jpg',
+                          width: 70,
+                          height: 80,
+                          fit: BoxFit.cover,
+                        )
+                      ],
+                    )
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: ElevatedButton(
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => Laptop(),
                       )
-                    ],
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(400, 200),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)
                   ),
-                );
-              },
+                  backgroundColor: Colors.white,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Positioned(
+                      left: 40,
+                      child: Text('Phụ kiện', style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),),
+                    ),
+                    SizedBox(width: 30,),
+                    Image.network(
+                      'https://cdn2.fptshop.com.vn/unsafe/640x0/filters:quality(100)/Phu_kien_41434d66e5.png',
+                      width: 170,
+                      height: 150,
+                      fit: BoxFit.cover,
+                    )
+                  ],
+                )
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: ElevatedButton(
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => Laptop(),
+                      )
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(200, 100),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  backgroundColor: Colors.white,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Positioned(
+                      left: 40,
+                      child: Text('SIM FPT', style: TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.bold),),
+                    ),
+                    SizedBox(width: 10,),
+                    Image.network(
+                      'https://cdn2.fptshop.com.vn/unsafe/180x0/filters:quality(100)/sim_fpt_thumb_2_d50e064a42.png',
+                      width: 70,
+                      height: 80,
+                      fit: BoxFit.cover,
+                    )
+                  ],
+                )
             ),
           ),
         ],
-      )
+      ),
     );
   }
 }
